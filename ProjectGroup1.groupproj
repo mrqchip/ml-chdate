@@ -1,0 +1,54 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{703f9855-63b4-4fb3-b79e-61d8222d461d}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="..\..\lars\mlach\Baza\Genet\Genet.dproj" />
+    <Projects Include="..\..\lars\mlach\SL\SymLamp\RAD\SymLamp.dproj" />
+    <Projects Include="ChDate.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="ChDate">
+    <MSBuild Projects="ChDate.dproj" Targets="" />
+  </Target>
+  <Target Name="ChDate:Clean">
+    <MSBuild Projects="ChDate.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="ChDate:Make">
+    <MSBuild Projects="ChDate.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Genet">
+    <MSBuild Projects="..\..\lars\mlach\Baza\Genet\Genet.dproj" Targets="" />
+  </Target>
+  <Target Name="Genet:Clean">
+    <MSBuild Projects="..\..\lars\mlach\Baza\Genet\Genet.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="Genet:Make">
+    <MSBuild Projects="..\..\lars\mlach\Baza\Genet\Genet.dproj" Targets="Make" />
+  </Target>
+  <Target Name="SymLamp">
+    <MSBuild Projects="..\..\lars\mlach\SL\SymLamp\RAD\SymLamp.dproj" Targets="" />
+  </Target>
+  <Target Name="SymLamp:Clean">
+    <MSBuild Projects="..\..\lars\mlach\SL\SymLamp\RAD\SymLamp.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="SymLamp:Make">
+    <MSBuild Projects="..\..\lars\mlach\SL\SymLamp\RAD\SymLamp.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="ChDate;Genet;SymLamp" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="ChDate:Clean;Genet:Clean;SymLamp:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="ChDate:Make;Genet:Make;SymLamp:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>
